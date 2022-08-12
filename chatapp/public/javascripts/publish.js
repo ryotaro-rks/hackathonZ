@@ -12,7 +12,14 @@ function publish() {
     return false;
 }
 
+const formatDate = ()=>{
+    const date = new Date();
+    let formatted_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    return formatted_date;
+}
+
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('publishEvent', function (userName, message) {
     $('#thread').prepend('<p>' + userName + ': ' + message + '</p>');
+    $('#thread').prepend('<p>' + formatDate() + '</p>');
 });
