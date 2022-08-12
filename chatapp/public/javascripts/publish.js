@@ -6,6 +6,12 @@ function publish() {
     const userName = $(`#userName`).val();
     // 入力されたメッセージを取得
     const message = $(`#message`).val();
+
+    // 空文字では投稿できないように制御
+    if(message.trim() === '') {
+        return false;
+    }
+
     // 投稿内容を送信
     socket.emit(`publishEvent`, userName, message);
 
