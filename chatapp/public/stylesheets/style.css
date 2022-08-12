@@ -81,3 +81,11 @@ div {
 .room-exit_button {
 
 }
+
+.own-message {
+    color: red;
+}
+
+.common-message {
+    color: gray;
+}

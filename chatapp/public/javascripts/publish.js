@@ -13,6 +13,11 @@ function publish() {
 }
 
 // サーバから受信した投稿メッセージを画面上に表示する
-socket.on('publishEvent', function (userName, message) {
-    $('#thread').prepend('<p>' + userName + ': ' + message + '</p>');
+socket.on('publishOwnMessageEvent', function (publishUserName, message) {
+    $('#thread').prepend('<p class=own-message>' + publishUserName + ': ' + message + '</p>');
+});
+
+// サーバから受信した投稿メッセージを画面上に表示する
+socket.on('publishOtherMessageEvent', function (publishUserName, message) {
+    $('#thread').prepend('<p class=common-message>' + publishUserName + ': ' + message + '</p>');
 });
