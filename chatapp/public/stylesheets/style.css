@@ -81,3 +81,7 @@ div {
 .room-exit_button {
 
 }
+
+#thread {
+    white-space: pre;
+}
