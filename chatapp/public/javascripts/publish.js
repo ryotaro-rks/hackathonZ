@@ -22,3 +22,10 @@ function publish() {
 socket.on('publishEvent', function (userName, message) {
     $('#thread').prepend('<p>' + userName + ': ' + message + '</p>');
 });
+
+$("#message").keypress(function (e) {
+    if(e.which === 13 && !e.shiftKey) {
+        e.preventDefault();
+        publish();
+    }
+});
